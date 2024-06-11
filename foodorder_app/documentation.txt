@@ -1,0 +1,168 @@
+Creating a full backend REST API for a food ordering system using Express.js, Sequelize, MySQL2, JWT, and role-based authentication involves several components. I'll guide you through the setup and provide a basic structure and code examples for each part of the system.
+
+1. Project Setup
+First, create a new directory for your project and initialize it as a Node.js project:
+
+bash
+Copy code
+mkdir food-order-api
+cd food-order-api
+npm init -y
+2. Install Dependencies
+Install Express, Sequelize, MySQL2, JSON Web Token (JWT) for authentication, and other necessary packages:
+
+bash
+Copy code
+npm install express sequelize mysql2 jsonwebtoken bcryptjs cors dotenv
+npm install --save-dev nodemon
+3. Folder Structure
+Here's a basic folder structure for your project:
+
+css
+Copy code
+food-order-api/
+│
+├── config/
+│   ├── db.config.js
+│   ├── auth.config.js
+├── models/
+│   ├── index.js
+│   ├── user.js
+│   ├── role.js
+│   ├── order.js
+│   ├── product.js
+├── routes/
+│   ├── auth.routes.js
+│   ├── user.routes.js
+│   ├── order.routes.js
+├── middlewares/
+│   ├── authJwt.js
+│   ├── verifySignUp.js
+│   ├── errorHandler.js
+├── controllers/
+│   ├── auth.controller.js
+│   ├── user.controller.js
+│   ├── order.controller.js
+├── app.js
+4. Basic Code Setup
+app.js - Entry point of the application:
+
+javascript
+Copy code
+const express = require('express');
+const cors = require('cors');
+const app = express();
+
+// Environment Variables
+require('dotenv').config();
+b-0oc •
+// Middlewares 
+app.use(cors());
+app.use(express.json());
+app.use(require('./middlewares/errorHandler'));
+
+// Routes
+require('./routes/auth.routes')(app);
+require('./routes/user.routes')(app);
+require('./routes/order.routes')(app);
+
+// Database
+const db = require('./models');
+db.sequelize.sync();
+
+// Start server
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});
+Configurations, Models, Controllers, and Routes:
+
+config/ - Contains database and auth configurations.
+models/ - Contains Sequelize models and associations.
+controllers/ - Business logic for handling requests.
+routes/ - Express routes to map endpoints to controller functions.
+middlewares/ - Middleware functions for authentication and error handling.
+5. Example Code for Key Components
+Example: Sequelize Model (models/user.js)
+
+javascript
+Copy code
+const { Sequelize, DataTypes } = require('sequelize');
+const sequelize = require('../config/db.config');
+
+const User = sequelize.define('user', {
+  username: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true
+  },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false
+  }
+});
+
+module.exports = User;
+Example: Middleware for JWT Authentication (middlewares/authJwt.js)
+
+javascript
+Copy code
+const jwt = require('jsonwebtoken');
+const config = require('../config/auth.config.js');
+
+const verifyToken = (req, res, next) => {
+  let token = req.headers["x-access-token"];
+
+  if (!token) {
+    return res.status(403).send({ message: "No token provided!" });
+  }
+
+  jwt.verify(token, config.secret, (err, decoded) => {
+    if (err) {
+    return res.status(401).send({ message: "Unauthorized!" });
+    }
+    req.userId = decoded.id;
+    next();
+  });
+};
+
+module.exports = { verifyToken };
+6. Sequelize Associations
+In your models/index.js, you can define associations like this:
+
+javascript
+Copy code
+const db = {};
+
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+
+db.users = require('./user')(sequelize, Sequelize);
+db.roles = require('./role')(sequelize, Sequelize);
+
+// Associations
+db.roles.belongsToMany(db.users, { through: 'user_roles' });
+db.users.belongsToMany(db.roles, { through: 'user_roles' });
+
+module.exports = db;
+7. Running the Application
+To run the application, you can use nodemon for development:
+
+json
+Copy code
+// In package.json under scripts
+"scripts": {
+  "start": "node app.js",
+  "dev": "nodemon app.js"
+}
+Run the server using:
+
+bash
+Copy code
+npm run dev
+This setup provides a starting point. You'll need to expand on this by adding more detailed implementations for each model, controller, and route based on your specific application requirements.

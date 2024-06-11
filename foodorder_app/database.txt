@@ -1,0 +1,146 @@
+CREATE TABLE Users (
+    userID INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Inserting some test data
+INSERT INTO Users (username, email, password) VALUES
+('john_doe', 'john.doe@example.com', 'hashed_password1'),
+('jane_doe', 'jane.doe@example.com', 'hashed_password2');
+
+
+==========================================================================================
+CREATE TABLE Roles (
+    roleID INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL UNIQUE
+);
+
+-- Inserting some test data
+INSERT INTO Roles (name) VALUES
+('Admin'),
+('Customer');
+==========================================================================================
+CREATE TABLE User_Roles (
+    userID INT,
+    roleID INT,
+    PRIMARY KEY (userID, roleID),
+    FOREIGN KEY (userID) REFERENCES Users(userID),
+    FOREIGN KEY (roleID) REFERENCES Roles(roleID)
+);
+
+-- Inserting some test data
+INSERT INTO User_Roles (userID, roleID) VALUES
+(1, 1),  -- John Doe as Admin
+(2, 2); -- Jane Doe as Customer
+
+==========================================================================================
+CREATE TABLE Orders (
+    orderID INT AUTO_INCREMENT PRIMARY KEY,
+    userID INT,
+    total DECIMAL(10, 2) NOT NULL,
+    status VARCHAR(255) DEFAULT 'pending',
+    FOREIGN KEY (userID) REFERENCES Users(userID)
+);
+
+-- Inserting some test data
+INSERT INTO Orders (userID, total, status) VALUES
+(2, 150.00, 'completed');
+
+==========================================================================================
+CREATE TABLE Products (
+    productID INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    description TEXT,
+    stock INT NOT NULL,
+    image VARCHAR(255) NOT NULL
+);
+
+-- Inserting some test data
+INSERT INTO Products (name, price, description, stock, image) VALUES
+('Cheese Pizza', 10.99, 'A delicious large cheese pizza', 20, 'cheese_pizza.jpg'),
+('Veggie Burger', 8.49, 'A healthy veggie burger', 15, 'veggie_burger.jpg');
+
+==========================================================================================
+CREATE TABLE Order_Products (
+    orderID INT,
+    productID INT,
+    PRIMARY KEY (orderID, productID),
+    FOREIGN KEY (orderID) REFERENCES Orders(orderID),
+    FOREIGN KEY (productID) REFERENCES Products(productID)
+);
+
+-- Inserting some test data
+INSERT INTO Order_Products (orderID, productID) VALUES
+(1, 1);
+
+==========================================================================================
+
+
+**Users Table**
+
+| userID | username | email                | password         |
+|--------|----------|----------------------|------------------|
+| 1      | john_doe | john.doe@example.com | hashed_password1 |
+| 2      | jane_doe | jane.doe@example.com | hashed_password2 |
+
+
+**Roles Table**
+
+| roleID | name     |
+|--------|----------|
+| 1      | Admin    |
+| 2      | Customer |
+
+**User_Roles Join Table**
+
+| userID | roleID |
+|--------|--------|
+| 1      | 1      |
+| 2      | 2      |
+
+**Orders Table**
+
+| orderID | userID | total  | status    |
+|---------|--------|--------|-----------|
+| 1       | 2      | 150.00 | completed |
+
+**Products Table**
+
+| productID | name          | price | description                     | stock | image             |
+|-----------|---------------|-------|---------------------------------|-------|-------------------|
+| 1         | Cheese Pizza  | 10.99 | A delicious large cheese pizza  | 20    | cheese_pizza.jpg  |
+| 2         | Veggie Burger | 8.49  | A healthy veggie burger         | 15    | veggie_burger.jpg |
+
+**Order_Products Join Table**
+
+| orderID | productID |
+|---------|-----------|
+| 1       | 1         |
+======================================
+create database foodorderapp;
+
+drop database foodorderapp;
+
+use  foodorderapp;
+
+select * from roles;
+insert into roles values
+(1,'ADMIN'),
+(2,'CUSTOMER');
+select * from users;
+
+select * from user_roles;
+
+select * from orders;
+select * from products;
+
+select * from order_products;
+alter table order_products
+add column quantity int default 0;
+
+
+
+
