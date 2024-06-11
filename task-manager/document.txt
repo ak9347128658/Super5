@@ -1,0 +1,164 @@
+Task Management Application:
+    Develop an application where users can create,read, update, delete (CRUD)
+    Add user authentication to manage tasks on a per-user basis.
+    Implement error handling for database connectivity issues and ensure proper feedback is given for CRUD operations.
+    Book Library System:
+
+
+
+task-manager/
+│
+├── config/
+│   └── db.js             # Database connection setup
+│
+├── controllers/
+│   ├── taskController.js # Task-related business logic
+│   └── userController.js # User authentication and management logic
+│
+├── middlewares/
+│   ├── authMiddleware.js # Middleware for handling authentication
+│   └── errorHandler.js   # Middleware for error handling
+│
+├── routes/
+│   ├── taskRoutes.js     # Routes for task-related endpoints
+│   └── userRoutes.js     # Routes for user-related endpoints
+│
+├── .env                  # Environment variables
+├── package.json          # Project metadata and dependencies
+├── app.js             # Entry point of the application
+└── .gitignore            # Specifies intentionally untracked files to ignore
+
+
+
+Creating a complete REST API project with Express, MySQL, authentication, and middleware for error handling involves several steps and components. Below, I will outline the folder structure and provide a basic example code to get you started. This project will be for a Task Management Application where users can manage their tasks after logging in.
+
+Folder Structure
+Here’s a basic folder structure for your Express REST API:
+
+task-manager/
+│
+├── config/
+│   └── db.js             # Database connection setup
+│
+├── controllers/
+│   ├── taskController.js # Task-related business logic
+│   └── userController.js # User authentication and management logic
+│
+├── middlewares/
+│   ├── authMiddleware.js # Middleware for handling authentication
+│   └── errorHandler.js   # Middleware for error handling
+│
+│
+├── routes/
+│   ├── taskRoutes.js     # Routes for task-related endpoints
+│   └── userRoutes.js     # Routes for user-related endpoints
+│
+├── .env                  # Environment variables
+├── package.json          # Project metadata and dependencies
+├── app.js             # Entry point of the application
+└── .gitignore            # Specifies intentionally untracked files to ignore
+============================================================================================================
+
+Installation
+First, you need to set up your Node.js environment:
+
+
+mkdir task-manager
+cd task-manager
+npm init -y
+npm install express mysql2  dotenv bcryptjs jsonwebtoken body-parser
+ npm install --save-dev nodemon
+npm install cors
+
+============================================================================================================
+Sample Code
+Here is an outline and some snippets to help you get started:
+
+create database taksmanagerdb;
+
+use taksmanagerdb;
+
+create table users(
+   id int primary key auto_increment,
+   username varchar(100) unique not null,
+   password varchar(100) unique not null
+ );
+
+ 
+
+CREATE TABLE tasks (
+     id INT AUTO_INCREMENT PRIMARY KEY,
+     userId INT ,
+     title VARCHAR(255),           
+     description TEXT,            
+     FOREIGN KEY (userId) REFERENCES users(id)
+ );
+ 
+ 
+Database Connection (config/db.js)
+javascript
+
+const mysql = require('mysql2');
+const dotenv = require('dotenv')
+ dotenv.config();
+
+const pool = mysql.createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASS,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+});
+
+module.exports = pool.promise();
+Server Entry (app.js)
+javascript
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
+
+dotenv.config();
+const userRoutes = require('./routes/userRoutes');
+const taskRoutes = require('./routes/taskRoutes');
+const errorHandler = require('./middlewares/errorHandler');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(bodyParser.json());
+app.use('/users', userRoutes);
+app.use('/tasks', taskRoutes);
+app.use(errorHandler); // Error handling middleware
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
+Error Handling Middleware (middlewares/errorHandler.js)
+javascript
+
+module.exports = (err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+}
+Authentication Middleware (middlewares/authMiddleware.js)
+javascript
+Copy code
+const jwt = require('jsonwebtoken');
+
+module.exports = (req, res, next) => {
+  try {
+    const token = req.headers.authorization.split(" ")[1];
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.userData = decoded;
+    next();
+  } catch (error) {
+    return res.status(401).json({
+      message: 'Auth failed'
+    });
+  }
+};
+
+============================================================================================================

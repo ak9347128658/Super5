@@ -1,0 +1,35 @@
+Asynchronous JavaScript (Promises, async/await)
+1.provide all topic with code example 
+2.how to use provie all possible codes
+Note:for java script
+
+Introduction to JavaScript
+Variables and Data Types
+Operators
+Control Structures (if statements, loops)
+Functions
+Arrays
+Objects
+Scope and Closures
+DOM Manipulation
+Events
+Asynchronous JavaScript (Promises, async/await)
+Error Handling
+Modules
+ES6 Features (Arrow Functions, Template Literals, etc.)
+Regular Expressions
+JSON
+AJAX and Fetch API
+Web Storage (localStorage, sessionStorage)
+APIs and JSONP
+Debugging JavaScript
+Performance Optimization
+Security Best Practices
+Testing JavaScript Applications
+Building and Bundling JavaScript (Webpack, Babel)
+Frameworks and Libraries (React, Angular, Vue.js)
+Node.js Basics
+Express.js
+MongoDB (with Node.js)
+Authentication and Authorization
+Deployment of JavaScript Applications

@@ -1,0 +1,34 @@
+how to make a express js starter app
+====================================
+step 1: create a folder 
+step 2:cd app1
+step 3:npm init -y
+step 4:npm  express 
+step 5:create a app.js file
+step 6:write stater code
+step 7:node app.js
+
+
+how to restart app while development
+====================================
+step 1: npm install nodemon
+step 2:go to package.json
+step 3:write a script for dev development and for productions
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start":"node app.js"
+  },
+step 4: development  "npm run dev"  if we want to run as development server
+step 5: for production we have to use "npm run start"
+
+
+how to use .env file 
+====================
+step 1:npm install dotenv
+step 2:create a .env
+step 3:we have to declare the content in key value pair we have declare ex: PORT= 3000
+step 4: 
+   const dotenv = require('dotenv');
+   dotenv.config();
+
+   const xyz = process.env.["Key Name"]  Ex:const PORT = process.env.PORT;
