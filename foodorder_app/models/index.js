@@ -5,19 +5,19 @@ const Role = require('./role');
 const db = require('../config/db');
 
 const setupDatabaseAssociations = async () => {
-   Role.belongsToMany(User,{
+   Role.belongsToMany(User,{                        // many to many relationship
       through: 'user_roles',
         foreignKey: 'roleId',    
         otherKey: 'userId'       
    });
-    User.belongsToMany(Role,{
+    User.belongsToMany(Role,{                      // many to many relationship
         through: 'user_roles',
           foreignKey: 'userId',
           otherKey: 'roleId'
     });
 
-    User.hasMany(Order,{as: 'orders', foreignKey: 'userId'});
-    Order.belongsTo(User,{as: 'user', foreignKey: 'userId'});
+    User.hasMany(Order,{as: 'orders', foreignKey: 'userId'});       // one to many relationship
+    Order.belongsTo(User,{as: 'user', foreignKey: 'userId'});       // one to one relationship
 
     Order.belongsToMany(Product,{
         through: 'order_products',
@@ -30,6 +30,9 @@ const setupDatabaseAssociations = async () => {
         otherKey: 'orderId'
     });
   await db.sync();
+
+  //await db.sync({force:true}); // Use this to drop all tables and recreate them
+  //await db.sync({alter:true}); // Use this to make changes to the tables
 };
 
 module.exports = {

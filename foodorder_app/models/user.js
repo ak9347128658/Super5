@@ -15,14 +15,15 @@ const User = db.define('user', {
       email: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
-        validate: {
-          isEmail: true
-        }
+        unique: true
       },
       password: {
         type: DataTypes.STRING,
         allowNull: false
+      },
+      logo:{
+        type:DataTypes.STRING,
+        allowNull:false
       }
 },{
   timestamps:true,
