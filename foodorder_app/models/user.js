@@ -22,7 +22,7 @@ const User = db.define('user', {
         allowNull: false
       },
       logo:{
-        type:DataTypes.STRING,
+        type:DataTypes.TEXT,
         allowNull:false
       }
 },{
@@ -31,3 +31,4 @@ const User = db.define('user', {
 });
 
 module.exports = User;
+

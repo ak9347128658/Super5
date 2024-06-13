@@ -16,7 +16,7 @@ const Product = db.define('product', {
         allowNull: false
     },
     description: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false
     },
     stock: {
@@ -24,7 +24,7 @@ const Product = db.define('product', {
         allowNull: false
     },
     image: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false
     }
 },{

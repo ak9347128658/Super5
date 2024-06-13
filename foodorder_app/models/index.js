@@ -13,7 +13,7 @@ const setupDatabaseAssociations = async () => {
     User.belongsToMany(Role,{                      // many to many relationship
         through: 'user_roles',
           foreignKey: 'userId',
-          otherKey: 'roleId'
+          otherKey: 'roleId'                      // user.setRole(role)
     });
 
     User.hasMany(Order,{as: 'orders', foreignKey: 'userId'});       // one to many relationship
@@ -32,7 +32,7 @@ const setupDatabaseAssociations = async () => {
   await db.sync();
 
   //await db.sync({force:true}); // Use this to drop all tables and recreate them
-  //await db.sync({alter:true}); // Use this to make changes to the tables
+  // await db.sync({alter:true}); // Use this to make changes to the tables
 };
 
 module.exports = {

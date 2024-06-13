@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const {setupDatabaseAssociations} = require('./models/index');
 const ProductRoutes = require('./routes/Products');
+const UserRoutes = require('./routes/user');
 const app = express();
 
 
@@ -12,7 +13,7 @@ app.use(bodyParser.json()); // Parses JSON requests
 const PORT = process.env.PORT || 8080;
 
 app.use(ProductRoutes);
-
+app.use(UserRoutes);
 const startapp = async () => {
   try{
     await setupDatabaseAssociations();
