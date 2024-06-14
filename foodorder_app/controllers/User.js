@@ -48,17 +48,18 @@ const login = async (req,res,next) => {
         return res.status(400).json({message: 'Invalid password.'});
      }else{
         const token = jwt.sign(
-          {userId:user.id},
+          {userId:user.userId,username:user.username,email:user.email,logo:user.logo},
           process.env.JWT_SECRET,
           {expiresIn: '24h'}
         );
         res.status(200).json({message: 'Authentication successfull.', token: token
-            ,userId: user.id
+            ,userId: user.id,username:user.username,email:user.email,logo:user.logo
         });
      }
 
 
    }catch(error){
+    console.log('error',error);
      console.log("Error in login function");   
    }   
 }

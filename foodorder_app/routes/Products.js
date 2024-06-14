@@ -8,14 +8,16 @@ const {
 const express = require('express');
 const router = express.Router();
 
-router.post('/createproduct',createProduct);
+const {verifytoken,isAdmin} = require('../middlewares/authetication');
 
-router.get('/products',getAllProducts);
+router.post('/createproduct',[verifytoken,isAdmin],createProduct);
 
-router.get('/products/:productId',getProductById);               // https://localhost:3000/products/:productId
+router.get('/products',[verifytoken],getAllProducts);
 
-router.delete('/products/:productId',deleteProduct);          // https://localhost:3000/products/:productId
+router.get('/products/:productId',[verifytoken],getProductById);               // https://localhost:3000/products/:productId
 
-router.put('/products/:productId',updateProductbyId);          // https://localhost:3000/products/:productId
+router.delete('/products/:productId',[verifytoken,isAdmin],deleteProduct);          // https://localhost:3000/products/:productId
+
+router.put('/products/:productId',[verifytoken,isAdmin],updateProductbyId);          // https://localhost:3000/products/:productId
 
 module.exports = router;
