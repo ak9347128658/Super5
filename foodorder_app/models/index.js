@@ -29,7 +29,8 @@ const setupDatabaseAssociations = async () => {
         foreignKey: 'productId',
         otherKey: 'orderId'
     });
-  await db.sync();
+
+    await db.sync();
 
   //await db.sync({force:true}); // Use this to drop all tables and recreate them
   // await db.sync({alter:true}); // Use this to make changes to the tables
