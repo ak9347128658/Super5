@@ -74,6 +74,8 @@ const updateOrder = async (req, res,next) => {  //http://localhost:3000/updateor
         total,
         status
         } = req.body;
+
+      console.log("i am details :",orderId,total,status)
     const order = await Order.findByPk(orderId);
     if(order){
         if(status)

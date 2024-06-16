@@ -26,7 +26,7 @@ const setupDatabaseAssociations = async () => {
         otherKey: 'productId'
     });
     Product.belongsToMany(Order,{
-        through: 'order_products',
+        through: OrderProduct,
         foreignKey: 'productId',
         otherKey: 'orderId'
     });
