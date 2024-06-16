@@ -2,6 +2,7 @@ const User = require('./user');
 const Order = require('./order');
 const Product = require('./product');
 const Role = require('./role');
+const OrderProduct = require('./OrderProducts');
 const db = require('../config/db');
 
 const setupDatabaseAssociations = async () => {
@@ -20,7 +21,7 @@ const setupDatabaseAssociations = async () => {
     Order.belongsTo(User,{as: 'user', foreignKey: 'userId'});       // one to one relationship
 
     Order.belongsToMany(Product,{
-        through: 'order_products',
+        through: OrderProduct,
         foreignKey: 'orderId',
         otherKey: 'productId'
     });
@@ -32,7 +33,7 @@ const setupDatabaseAssociations = async () => {
 
     await db.sync();
 
-  //await db.sync({force:true}); // Use this to drop all tables and recreate them
+  // await db.sync({force:true}); // Use this to drop all tables and recreate them
   // await db.sync({alter:true}); // Use this to make changes to the tables
 };
 

@@ -6,22 +6,23 @@ const createOrder = async (req, res,next) => {
     const {userId} = req.userData;
     const {
         total,
-        products                            // [{productId,quantity},{productId,quantity},{productId,quantity}]
+        carts                                    // [{productId,quantity},{productId,quantity},{productId,quantity}]
         } = req.body;
     const user = await User.findByPk(userId);
 
-    const order = await order.create({
+    
+    const order = await Order.create({
         total:total
     })
             
     await order.setUser(user);
     await order.save();
-    for(let pro of products){
+    for(let pro of carts){
         const product = await Product.findByPk(pro.productId);
-        await order.addProduct(product,{through:{quantity:product.quantity}});
+        await order.addProduct(product,{through:{quantity:pro.quantity}});
     }
     if(order)
-        res.status(201).json({message: 'Order created successfully',order});
+        res.status(201).json({message: 'Order created successfully',order:order.dataValues});
     else 
       res.status(400).json({message: 'Error creating order'});
 

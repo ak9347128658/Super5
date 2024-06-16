@@ -32,6 +32,7 @@ const isAdmin = async (req,res,next) => {
           return;
       }
   }
+    return res.status(403).json({message: 'Require Admin Role!'});
 }
 
 module.exports = {verifytoken,isAdmin};

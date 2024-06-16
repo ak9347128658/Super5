@@ -1,7 +1,7 @@
 const db = require('../config/db');
 const {DataTypes} = require('sequelize');
 
-const Order = db.define('order', {
+const Order = db.define('orders', {
     orderId:{
       type:DataTypes.UUID,
       primaryKey:true,
