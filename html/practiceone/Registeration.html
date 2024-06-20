@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <form id="myform">
+        <label for="myname">Name</label>
+        <input type="text" name="myname" id="myname" required>
+        <br/>
+        <label for="myemail">Email</label>
+        <input type="email" name="myemail" id="myemail"><br/>
+        <input type="submit" value="Submit" id="sumitbutton" required>
+    </form>    
+    <hr/>
+    <pre>
+        <a href="./index.html">&larr;&nbsp;Go to  Home page</a>      <a href="./about.html">Go to About page &nbsp; &rarr;</a>
+    </pre>
+</body>
+<script>
+    document.getElementById("myform").addEventListener("submit", function(event){
+        event.preventDefault();
+        const fromdata = new FormData(event.target);
+        const name = fromdata.get("myname");
+        const email = fromdata.get("myemail");
+        if(name === "" || email === ""){
+            alert("Please fill all the fields");
+            return;
+        }
+        console.log(name, email);
+    });
+</script>
+<style>
+        pre{
+        font-size: x-large;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        margin: auto;
+    }
+    input{
+        margin: 10px 0;
+        padding: 10px;
+    }
+    #sumitbutton{
+        padding: 10px;
+        background-color: green;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+</html>
