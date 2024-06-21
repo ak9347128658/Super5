@@ -1,0 +1,64 @@
+body{
+    background-color: #fff1e8;
+    color: rgb(5, 4, 4);
+    width: 100vw;
+}
+#myheader{
+  color: rgb(255, 0, 0);
+  text-align: center;
+  /* text-decoration-line: underline;
+  text-decoration-color: darkblue;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 10px; */
+  text-decoration: dashed underline overline yellowgreen 10px; 
+}  
+.myparagraph{
+  
+  color:black;
+  text-align:center;
+  text-transform: capitalize;
+  text-indent: 150px;
+  /* text-decoration-line: line-through; */
+  /* text-wrap: nowrap; */
+  /* text-orientation: ; */
+  font-size: 20px;
+  /* font-family: 'Courier New', Courier, monospace; */
+  /* font-weight:  900; */
+  /* font-display: unset; */
+  line-height: 50px;
+  
+}
+
+
+.mydiv{
+    width: 250px;
+    border-width: 2px;
+    border-color: rgb(5, 19, 63);
+    border-style: solid;
+    border-radius: 20px;
+    text-align: center;
+    /* padding-top: 40px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    padding-left: 40px; */
+    /* padding: 10px 0px 0px 100px; */
+    background-color: cornsilk;
+    padding: 20px;
+    /* border-style:solid,dotted,dashed */
+    /* border:10px dotted red; */
+    /* border:10px dashed red; */
+    margin: 0px 0px 0px 100px;    
+    cursor: pointer;
+}
+
+.mydiv h1{
+    color: rgb(255, 136, 0);
+}
+
+.mydiv:hover{
+    background-color: rgb(255, 136, 0);
+}
+
+.mydiv h1:hover{
+    color: rgb(5, 19, 63);
+}
