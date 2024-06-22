@@ -1,0 +1,146 @@
+
+
+body{
+    height: 300vh;
+}
+.childdev{
+   border: 3px solid rgb(155, 9, 9); 
+   color:white;
+   width: 10%;
+   padding:15px;
+   text-align: center;
+   margin: 5px  10% 5px 10%;
+   border-radius: 40px;
+   display: inline-block;
+}
+
+.item1{
+    background-color: rgba(7, 7, 41,0.2);
+}
+
+.item2{
+    background-color: rgb(24, 247, 217);
+    /* visibility: hidden; */
+    /* display: none; */
+}
+.item3{
+    background-color: rgb(220, 235, 9);
+}
+.item4{
+    background-color: rgb(209, 12, 248);
+}
+.item5{
+    background-color: rgb(21, 240, 13);
+}
+
+.screen{
+    background-color: black;
+    color: white;
+    /* word-break: break-all; */
+    height: 100vh;
+    width: 100vw;
+}
+
+.screen2{
+    background-color: red;
+    height: 100vh;
+    width: 100vw;
+}
+
+
+.staticdiv{
+    background-color: rgb(173, 173, 197);
+    color: white;
+    width: 200px;
+    height: 100px;
+    padding: 15px;
+    text-align: center;
+    /* text-shadow: 5px 5px 3px #2b1414;
+    box-shadow: 10px 10px 5px #888888; */
+    margin: 5px 10% 5px 10%;
+    display: inline-block;
+}
+
+.relativediv{
+    background-color: rgb(124, 226, 178);
+    color: white;
+    width: 200px;
+    height: 100px;
+    padding: 15px;
+    text-align: center;
+    /* text-shadow: 5px 5px 3px #2b1414;
+    box-shadow: 10px 10px 5px #888888; */
+    /* margin: 5px 10% 5px 10%; */
+    margin-top: 10vh;
+    margin-left: 20vw;
+    /* position: relative;
+    left: 10%; */
+
+}
+
+.absoluediv{
+    background-color: rgb(156, 230, 87);
+    color: white;
+    width: 200px;
+    height: 100px;
+    padding: 15px;
+    text-align: center;
+    /* text-shadow: 5px 5px 3px #2b1414;
+    box-shadow: 10px 10px 5px #888888; */
+    /* margin: 5px 10% 5px 10%; */
+    position: absolute;
+        /* top:0px; right: 40vw; */
+    /* bottom: 70%;left: 30px; */
+}
+
+.fixeddiv{
+    background-color: rgb(235, 227, 127);
+    color: white;
+    width: 200px;
+    height: 100px;
+    padding: 15px;
+    text-align: center;
+    /* text-shadow: 5px 5px 3px #2b1414;
+    box-shadow: 10px 10px 5px #888888; */
+    /* margin: 5px 10% 5px 10%; */
+    position: fixed;
+    /* top:0px; right: 40vw; */
+    /* bottom: 70%;left: 30px; */
+}
+
+.stickydiv{
+    background-color: rgb(247, 223, 158);
+    color: white;
+    width: 200px;
+    height: 100px;
+    padding: 15px;
+    text-align: center;
+    /* text-shadow: 5px 5px 3px #2b1414;
+    box-shadow: 10px 10px 5px #888888; */
+    margin: 60vh 10% 5px 10%;
+    position: sticky;
+    top:10px;
+}
+
+
+.zcommon{
+    width: 200px;
+    height: 100px;
+    padding: 15px;
+    text-align: center;
+    border: 2px solid black;
+    position: fixed;
+    box-shadow: 2px 2px 2px 2px black;
+}
+
+.zitem1{
+    background-color: rgb(174, 174, 235);
+    top:17vh;left: 17vw;
+    z-index: 1;
+
+}
+
+.zitem2{
+    background-color: rgb(24, 247, 217);
+    top:20vh;left: 20vw;
+}
