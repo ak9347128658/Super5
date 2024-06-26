@@ -13,6 +13,6 @@ how to push the code next
 --------------------------
 git init
 git add .
-git commit -m "25-06-2024"
+git commit -m "26-06-2024"
 git branch -M main
 git push -u origin main
