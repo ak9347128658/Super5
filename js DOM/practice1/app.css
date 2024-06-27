@@ -1,0 +1,12 @@
+.mybackground{
+    background-color: rgb(5, 50, 119);
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
