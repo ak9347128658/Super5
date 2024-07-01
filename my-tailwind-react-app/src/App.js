@@ -1,24 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
-
+// import Welcome from './components/Welcome';
+// import User from './components/User';
+import Greeting from './components/Greeting';
+import { useState } from 'react';
 function App() {
+
+  // const userdetails = {
+  //   name: 'John Doe',
+  //   age: 25,
+  //   email: 'ak2311581@gmail.com',
+  //   location: 'Lagos, Nigeria'
+  // }
+
+  // let count = 0;
+  // const [count, setCount] = useState(0);
+  // const increment = () =>{
+  //   setCount(count+1);
+  //   console.log(count);
+  // }
+
+  // const decrement = () => {
+  //   setCount(count-1);
+  //   console.log(count);
+  // }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    {/* <Welcome content="This is a  welcome page" title="My first page title" /> */}
+    {/* <User User={userdetails} title="my title" /> */}
+    {/* <h1>Count :{count}</h1>
+    <button onClick={increment}><h1>Increment</h1></button>
+    <button onClick={decrement}><h1>Decrement</h1></button> */}
+     <p  className="myparam">I am h1</p>
+    <Greeting />
+    </> 
   );
 }
 

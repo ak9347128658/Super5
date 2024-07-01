@@ -15,7 +15,7 @@ git push -u origin main
 ```
 git init
 git add .
-git commit -m "27-06-2024"
+git commit -m "01-07-2024"
 git branch -M main
 git push -u origin main
 ```

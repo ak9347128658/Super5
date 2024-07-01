@@ -8,6 +8,10 @@ npx create-react-app my-tailwind-react-app
 cd my-tailwind-react-app
 
 ```
+### to start app
+```
+npm start
+```
 
 ### Step 2: Installing Tailwind CSS
 
