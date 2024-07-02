@@ -1,0 +1,29 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    height: 12vh;
+    background-color: #076b79;
+    color: white;
+}
+
+.logo{
+  flex:1;
+  text-align: center;
+}
+
+.navlinks{
+  flex:3;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  align-content: center;
+}
+
+.navitem{
+  transition: all 0.3s ease-in-out;
+}
+
+.navitem:hover{
+    color: red;
+    transform: scale(1.1);
+    cursor: pointer;
+}

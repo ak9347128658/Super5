@@ -1,0 +1,117 @@
+.todocontainer{
+  padding-right: 5vw;
+  padding-left: 5vw;
+  padding-top: 3vh;
+  display: flex;
+  min-height: 80vh;
+}
+
+.todoinputs{
+  flex: 1;
+  /* background-color: #c76464; */
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.todoinputs h1{
+  color: #383333;
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.todoinputs h3{
+    color: #383333;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2rem;
+    
+}
+
+.todoinputs input{
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border: 2px solid #383333;
+    border-radius: 20px;
+    outline: none;
+}
+
+.todoinputs input::placeholder{
+    color: #c5caf8;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.todoinputs input:focus{
+    border: 2px solid #c5caf8;
+}
+
+.todoinputs input:focus::placeholder{
+    color: #383333; 
+}
+
+.todoinputs button{
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border: 2px solid #383333;
+    border-radius: 20px;
+    background-color: #383333;
+    color: #c5caf8;
+    cursor: pointer;
+    outline: none;
+}
+
+.todolist{
+  flex: 1;
+  border: 2px solid #383333;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #383333;
+}
+
+.todolist h1{
+    text-align: center;
+}
+
+.todoitems{
+    
+}
+
+.todoitem{
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid #031e58;
+    margin: 5px;
+    padding: 3px;
+    border-radius: 25px;
+    background-color: rgb(6, 160, 114);
+    color: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.todoitem:hover{
+    background-color: #c5caf8;
+    color: #383333;
+    transform: scale(1.1);
+}
+
+
+.todoitem button{
+   background-color: red;
+   color: white;
+    border: none; 
+    /* align-self: center; */
+    cursor: pointer;
+    padding-right: 40px;
+    padding-left: 40px;
+    border-radius: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
