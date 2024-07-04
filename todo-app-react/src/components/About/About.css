@@ -1,0 +1,74 @@
+.about-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px; /* Increased base font size for better readability */
+}
+
+.logo {
+    max-width: 120px; /* Slightly larger logo */
+    margin: 0 auto 30px;
+    display: block;
+}
+
+.about-container h1 {
+    color: #007bff; /* Brighter shade of blue for the heading */
+    margin-bottom: 25px;
+}
+
+.about-container p {
+    color: #fdfcfc;
+    line-height: 1.8; /* Increased line height for better readability */
+}
+
+.about-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-container ul li {
+    background-color: #921818;
+    margin: 10px 0;
+    padding: 15px; /* More padding for better spacing */
+    border-radius: 8px; /* Slightly larger border radius for a softer look */
+    box-shadow: 0 2px 4px rgba(116, 42, 42, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.2s ease; /* Added transform for hover effect */
+    cursor: pointer;
+}
+
+.about-container ul li:hover {
+    transform: translateY(-4px); /* Lift effect on hover */
+}
+
+.a {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 18px; /* Adjusted padding for better touch target size */
+    background-color: #007bff; /* Brighter shade of blue for better contrast */
+    color: #fff;
+    border-radius: 8px; /* Consistent border-radius with list items */
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Added transform to transition */
+}
+
+.a:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Subtle lift effect on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .about-container {
+        padding: 15px;
+        font-size: 16px; /* Slightly smaller font size on smaller screens */
+    }
+
+    .logo {
+        max-width: 100px;
+    }
+
+    ul li, a {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+}

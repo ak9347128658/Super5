@@ -1,12 +1,14 @@
 import React,{useState,useEffect} from 'react';
 import './Home.css'
 
-function Home(props) {
+function Home({title,description}) {
+  console.log(description);
   const [todo,setTodo] = useState([]);
 
   const addTodo = () => {
      const tododata = document.querySelector('#todoinput').value;
      setTodo([...todo,tododata]);
+      document.querySelector('#todoinput').value = '';
      // todo = [todo1,todo2,todo3,todo4,todo5]
     //            0    1     2     3     4
   }

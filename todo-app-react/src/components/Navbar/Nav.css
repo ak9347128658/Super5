@@ -7,18 +7,19 @@
 }
 
 .logo{
-  flex:1;
   text-align: center;
 }
 
 .navlinks{
-  flex:3;
+  width: 60vw;
   display: grid;
   grid-template-columns: repeat(4,1fr);
   align-content: center;
 }
 
 .navitem{
+  text-decoration: none;
+  color: white;
   transition: all 0.3s ease-in-out;
 }
 
@@ -26,4 +27,16 @@
     color: red;
     transform: scale(1.1);
     cursor: pointer;
+}
+
+.backbutton{
+  width: 10vw;
+  height: 7vh;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+  background-color: rgb(238, 73, 7);
+  color: white;
+  border: none;
+  border-radius: 20px;
 }
