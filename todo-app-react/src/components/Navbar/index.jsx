@@ -5,10 +5,10 @@ export default function NavBar() {
    const navigate = useNavigate();
 
    const backHandler = () =>{
-      navigate(-1);
+      // navigate(-1);
       // navigate('/loginsignup')
       // navigate('/about')
-      // navigate('/',{replace:true, state:{description:"vinay"}})
+      navigate('/',{replace:true, state:{description:"vinay"}})
    }
 
   // const myfunction = (isActive) => {
