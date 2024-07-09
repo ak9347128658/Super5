@@ -3,7 +3,7 @@ import React from 'react';
 function Layouts(props) {
     return (
 <>
-        <div className=' border-red-700 border-4 h-80 lg:container mx-auto  '>
+        <div className=' border-red-800 border-4 h-80 sm:container mx-auto  '>
                     
         </div>
     

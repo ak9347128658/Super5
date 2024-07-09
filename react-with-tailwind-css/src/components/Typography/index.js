@@ -3,7 +3,7 @@ import React from 'react';
 function index(props) {
     return (
        <>
-    <div className="text-center  text-red-700 text-4xl font-sans font-bold tracking-wide leading-5 w-80 h-10 border border-black m-10 overflow-hidden truncate">
+    <div className="text-center  text-red-700 text-4xl font-sans font-extralight tracking-wider leading-9 w-80 h-10 border border-black m-10  ">
         Hellow world Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
      </div>
      <hr/>
@@ -15,7 +15,7 @@ function index(props) {
         </ul>
 
      <hr className='my-10'/>
-     <div className='text-center h-screen bg-[#384f8f] text-white space-y-10'>
+     <div className='text-center h-screen bg-[#3456b4] text-white space-y-10'>
      <h1 className='underline lowercase text-5xl text-amber-600'>Placeholder Color</h1>
         <input type="text" className='placeholder-[#f0982d] placeholder-opacity-1' placeholder='Enter your name'/><br/>
         <input type="text" className='' placeholder=''/><br/>
