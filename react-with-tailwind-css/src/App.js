@@ -4,6 +4,11 @@ import Layouts from './components/Layout';
 import FlexBox from './components/Flexbox';
 import Grid from './components/Grid';
 import Background from './components/Background';
+import Borders from './components/Borders';
+import TableComponent from './components/TableComponent';
+import AnimationComponent from './components/AnimationComponent';
+import DaisyUiComponents from './components/DaisyUiComponents';
+import UserRefComponent from './components/UserRefComponent';
 
 function App() {
   return (
@@ -12,7 +17,12 @@ function App() {
       {/* <Layouts/> */}
       {/* <FlexBox/> */}
       {/* <Grid/> */}
-      <Background/>
+      {/* <Background/> */}
+      {/* <Borders /> */}
+      {/* <TableComponent /> */}
+      {/* <AnimationComponent /> */}
+      {/* <DaisyUiComponents /> */}
+      <UserRefComponent />
     </>
   );
 }
