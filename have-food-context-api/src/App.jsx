@@ -5,6 +5,7 @@ import Login from './components/User/Login'
 import Register from './components/User/Register'
 import { useContext } from 'react'
 import { AuthContext } from './mycontext/AuthConxtext'
+import MainLayout from './components/Main/MainLayout'
 
 
 function App() {
@@ -18,8 +19,8 @@ function App() {
            <Route path='register' element={<Register/>} />
        </Route>}
         {isLogin &&
-        <Route path='/' element={<center><h1>Welcome {user} You have login success fully</h1></center>} />
-     }
+        <Route path='/' element={<MainLayout />} />
+         }
     </Routes>
     </>
   )

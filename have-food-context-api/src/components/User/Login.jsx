@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../mycontext/AuthConxtext';
+import { toast } from 'react-toastify';
 
 
 function Login(props) {
@@ -21,11 +22,11 @@ function Login(props) {
     const submit = () => {
         const data = loginFunction(email,password);
         if(data[0] === true){
-            alert(data[1]);
+            toast.success(data[1]);
             setIsLogin(true);
             navigate('/');
         }else{
-            alert(data[1]);
+            toast.error(data[1]);
         }
     }   
 

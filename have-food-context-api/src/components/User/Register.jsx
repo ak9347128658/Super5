@@ -22,12 +22,12 @@ function Register(props) {
     const submit = () => {
       const data =   registerFuction(email,password);
       if(data[0] === true){
-        alert(data[1]);
+        toast.success(data[1]);
         setTimeout(() => {
             navigate('/login');
             }, 2000);
       }else{
-        alert(data[1]);
+        toast.info(data[1]);
       }
     }
 
