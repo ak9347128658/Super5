@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import egg from '../../assets/accessories/unsplash-egg.jpg';
 import tartare from '../../assets/accessories/tartare.jpg';
 import oysters from '../../assets/accessories/unsplash-oysters.jpg';
 import polenta from '../../assets/accessories/unsplash-polenta.jpg';
+import { CartContext } from '../../mycontext/CartContext';
 
 function Menu(props) {
+    const {addToCart,removeFromCart,getItemQuantity} = useContext(CartContext);
     const menuItemsList = [
         {
             id: 'i1',
@@ -56,9 +58,11 @@ function Menu(props) {
                             <p className='text-gray-700 mb-4'>{item.description}</p>
                             <p className='text-xl font-semibold text-red-600 mb-4'>${item.price.toFixed(2)}</p>
                             <div className='flex items-center'>
-                                <button className='bg-red-600 text-white px-4 py-2 rounded-l-lg'>-</button>
-                                <span className='px-4 py-2 border-t border-b'>{item.qty}</span>
-                                <button className='bg-red-600 text-white px-4 py-2 rounded-r-lg'>+</button>
+                                <button className='bg-red-600 text-white px-4 py-2 rounded-l-lg' 
+                                onClick={()=>addToCart(item)}>+</button>
+                                <span className='px-4 py-2 border-t border-b'>{getItemQuantity(item.id)}</span>
+                                <button className='bg-red-600 text-white px-4 py-2 rounded-r-lg'
+                                onClick={()=>removeFromCart(item.id)}>-</button>
                             </div>
                         </div>
                     </div>
